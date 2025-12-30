@@ -41,17 +41,17 @@ This project was built to gain hands-on experience in **backend development, dat
 
 ## 📁 Folder Structure
 
+```
 new-sapphire/
-├── admin/ # Admin dashboard & booking management
-├── bootstrap-4.4.1/ # Bootstrap CSS & JS (local copy)
-├── css/ # Stylesheets
-├── image/ # Images used in UI
-├── js/ # JavaScript scripts
-├── hotel.sql # Database schema file
-├── index.php # Main landing page
-└── rooms.php # Rooms display / management page
-
-
+├── admin/                   # Admin dashboard & booking management
+├── bootstrap-4.4.1/         # Bootstrap CSS & JS (local copy)
+├── css/                     # Stylesheets
+├── image/                   # Images used in UI
+├── js/                      # JavaScript scripts
+├── hotel.sql                # Database schema file
+├── index.php                # Main landing page
+└── rooms.php                # Rooms display / management page
+```
 ---
 
 ## ⚙️ Installation & Setup
@@ -106,7 +106,8 @@ http://localhost/new-sapphire
 ## 🙋 Author
 
 **Nikita Sisode**  
-🔗 GitHub: https://github.com/nikitasisode 
+🔗 GitHub: https://github.com/Nikitasisode016 
 
 > ⭐ *If you found this project helpful or interesting, please consider giving the repo a star!*
+
 
