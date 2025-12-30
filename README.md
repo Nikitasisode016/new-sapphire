@@ -93,6 +93,38 @@ http://localhost/new-sapphire
 
 ---
 
+---
+
+## 📸 Screenshots
+
+### 🏠 Homepage
+| View | Image |
+|-------|-------|
+| Homepage | ![Homepage](screenshots/homepage1.png) |
+| Homepage - Rooms Overview | ![Homepage Extended](screenshots/homepage2.png) |
+
+---
+
+### 🛏 Rooms Display
+![Rooms](screenshots/rooms.png)
+
+---
+
+### 📝 Room Booking Pages
+| Step | Image |
+|------|-------|
+| Booking Form | ![Booking Form](screenshots/booking1.png) |
+| Booking Details Submission | ![Booking Details](screenshots/booking2.png) |
+| Booking Success Confirmation | ![Success](screenshots/success.png) |
+
+---
+
+### 🧑‍💼 Admin Dashboard
+![Admin Dashboard](screenshots/admin.png)
+
+---
+
+
 ## 🚧 Future Possibilities
 
 - Individual login for admin & customers
@@ -108,6 +140,7 @@ http://localhost/new-sapphire
 🔗 GitHub: https://github.com/Nikitasisode016 
 
 > ⭐ *If you found this project helpful or interesting, please consider giving the repo a star!*
+
 
 
 
