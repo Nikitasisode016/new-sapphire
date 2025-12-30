@@ -99,7 +99,6 @@ http://localhost/new-sapphire
 - Payment integration (Razorpay / PayPal)
 - Email confirmations for bookings
 - Analytics dashboard for admins
-- Calendar-based room selection
 
 ---
 
@@ -109,5 +108,6 @@ http://localhost/new-sapphire
 🔗 GitHub: https://github.com/Nikitasisode016 
 
 > ⭐ *If you found this project helpful or interesting, please consider giving the repo a star!*
+
 
 
