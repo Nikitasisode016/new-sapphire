@@ -1,6 +1,5 @@
 # 🏨 New Sapphire – Hotel Room Reservation System
 
-## 📝 Project Overview
 
 **New Sapphire** is a full-stack hotel room reservation system built using **PHP, MySQL, HTML, CSS, and Bootstrap**, deployed locally through **XAMPP**.  
 The application provides a **responsive user interface** for browsing available rooms and booking stays, while the backend manages **room availability, reservations, cancellations, and customer records** through an integrated **admin dashboard**.
@@ -148,6 +147,7 @@ http://localhost/new-sapphire
 🔗 GitHub: https://github.com/Nikitasisode016 
 
 > ⭐ *If you found this project helpful or interesting, please consider giving the repo a star!*
+
 
 
 
