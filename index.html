@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="image/NS logo.png" type="image/png">
+        <title>New Sapphire</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        
+        <style>
+            /* --- Previous Header and Booking Alignment Styles (Kept for Functionality) --- */
+            .hotel_booking_table { display: flex; align-items: center; width: 100%; }
+            .hotel_booking_table .col-md-3 { display: flex; align-items: center; height: 100%; }
+            .hotel_booking_table .col-md-3 h2 { margin-top: 0; }
+            .book_tabel_item { display: flex; justify-content: center; align-items: center; height: 100%; padding: 15px 0; }
+            .hotel_booking_table .row { align-items: center; }
+            .hotel_booking_table .col-md-9 .boking_table .row > div { display: flex; align-items: center; justify-content: center; }
+
+            .header_area.fixed-header { transition: all 0.4s ease-out 0s; z-index: 999; }
+            .header_area.navbar_fixed { 
+                position: fixed; 
+                width: 100%; 
+                top: -100px; 
+                transform: translateY(0);
+                opacity: 0; 
+                visibility: hidden; 
+                pointer-events: none; 
+                background: rgba(255, 255, 255, 0); 
+                box-shadow: none; 
+            }
+            .header_area { 
+                position: absolute; 
+                width: 100%; 
+                z-index: 10; 
+                background: transparent; 
+                transition: all 0.4s ease-out 0s !important; 
+            }
+            
+            /* Nav Link Hover Styles */
+            .header_area .menu_nav .nav-item .nav-link { color: #000000; text-shadow: none; transition: color 0.3s ease; }
+            .header_area .menu_nav .nav-item .nav-link:hover { color: #5bb3fd; }
+            .header_area .menu_nav .nav-item.active .nav-link { color: #000000; }
+            .header_area .menu_nav .nav-item.active .nav-link:hover { color: #5bb3fd; }
+            .header_area.navbar_fixed .menu_nav .nav-item .nav-link { color: #f7f7f7; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); }
+            .header_area.navbar_fixed .logo_h img { height: 40px; width: auto; transition: all 0.4s ease; }
+            
+            /* Booking Area Vertical Positioning Fix: MOVED UP */
+            .hotel_booking_area { margin-top: -160px; padding: 0 15px; }
+            .hotel_booking_table { 
+                background: rgba(0, 0, 0, 0.7); 
+                padding: 20px; 
+                border-radius: 5px; 
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease; 
+            }
+            .hotel_booking_table:hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); transform: translateY(-2px); }
+            .hotel_booking_table .col-md-3 h2 { color: #fff; }
+            
+            /* --- New Banner Motto Styling --- */
+            .banner-motto {
+                margin: 40px auto 60px auto; /* Adds vertical space */
+                padding: 15px 30px;
+                display: inline-block;
+                border: 2px solid rgba(255, 255, 255, 0.8); /* White frame */
+                background: rgba(0, 0, 0, 0.1); /* Slight dark backing */
+                color: #ffffff;
+                font-style: italic;
+                font-size: 16px;
+                letter-spacing: 1px;
+                max-width: 600px;
+            }
+
+
+            /* --- Room Section Styling (Kept) --- */
+            .banner_content { text-align: center; margin-left: 0; }
+            .banner_content h6, .banner_content h2, .banner_content p { text-align: center; }
+            .room_area { padding: 80px 0; }
+            .section_title h2 { font-size: 36px; font-weight: 700; margin-bottom: 20px; text-align: center; }
+            .room_card { border: 1px solid #eee; border-radius: 5px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s; display: flex; flex-direction: column; }
+            .room_card:hover { transform: translateY(-5px); }
+            .room_card img { width: 100%; height: 250px; object-fit: cover; }
+            .room_card .card-body { padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; }
+            .room-description-container { min-height: 150px; flex-grow: 1; }
+            .room_card .card-title { font-size: 22px; font-weight: 600; color: #333; margin-bottom: 10px; }
+            .room_card .card-text { font-size: 15px; color: #666; margin-bottom: 15px; }
+            .room-price { font-size: 16px; color: #888; margin-top: auto; border-top: 1px solid #f0f0f0; padding-top: 15px; text-align: left; }
+            .room-price span { font-size: 24px; font-weight: 800; color: #4CAF50; margin-left: 5px; }
+            .room_area .row { display: flex; flex-wrap: wrap; align-items: stretch; }
+
+            /* --- New Sections Styling (Kept) --- */
+            .about_why_choose_us_area { padding: 80px 0; background-color: #f9f9f9; }
+            .about_why_choose_us_area .section_title { margin-bottom: 50px; }
+            .about_why_choose_us_area .section_title h2 { font-size: 38px; font-weight: 700; color: #333; text-align: center; margin-bottom: 15px; }
+            .about_why_choose_us_area .section_title p { font-size: 16px; color: #666; text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+            .single_feature { text-align: center; padding: 30px; background: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 30px; transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+            .single_feature:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+            .single_feature .lnr { font-size: 48px; color: #5bb3fd; margin-bottom: 20px; display: block; }
+            .single_feature h4 { font-size: 22px; font-weight: 600; color: #333; margin-bottom: 15px; }
+            .single_feature p { font-size: 15px; color: #777; line-height: 1.6; }
+
+            /* --- Footer Styling --- */
+            .footer_area { background: #222; padding: 60px 0; color: #aaa; font-size: 14px; }
+            .footer_area h4 { color: #fff; font-size: 18px; margin-bottom: 25px; font-weight: 600; }
+            .footer_area p { line-height: 28px; margin-bottom: 15px; }
+            .footer_area .footer_social a { color: #aaa; font-size: 18px; margin-right: 15px; transition: all 0.3s ease; }
+            .footer_area .footer_social a:hover { color: #fff; }
+            .footer_area .useful_links li a { color: #aaa; transition: all 0.3s ease; display: block; padding: 5px 0; }
+            .footer_area .useful_links li a:hover { color: #fff; padding-left: 5px; }
+            .footer_area .copy_right_text { margin-top: 40px; text-align: center; border-top: 1px solid #333; padding-top: 25px; }
+            .footer_area .copy_right_text p { margin-bottom: 0; }
+        </style>
+    </head>
+    <body>
+        <header class="header_area fixed-header">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand logo_h" href="index.html"><img src="image/Ns Logo 1.png" height="65" width="230" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="#room-section">Rooms</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="admin/index.php">Admin Login</a></li> 
+                        </ul>
+                    </div> 
+                </nav>
+            </div>
+        </header>
+        <section class="banner_area">
+            <div class="booking_table d_flex align-items-center">
+                <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+                <div class="container">
+                    <div class="banner_content text-center">
+                        <h6>Limitless comfort in affordable Price</h6>
+                        <h2>Providing Luxury</h2>
+                        <p>Looking for the best place to stay in Metro City? <br> We are here to serve you and fulfill all your requirements .</p>
+                        
+                        <div class="banner-motto">
+                            "Where every stay is a masterpiece of comfort and tranquility."
+                        </div>
+                        </div>
+                </div>
+            </div>
+            
+            <div class="hotel_booking_area position">
+                <div class="container">
+                    <div class="hotel_booking_table">
+                        <div class="col-md-3">
+                            <h2>Book<br> Your Room</h2>
+                        </div>
+                        
+                        <div class="col-md-9">
+                            <div class="boking_table">
+                                <div class="row">
+                                    
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item"> 
+                                            <a class="book_now_btn button_hover" href="rooms.php">Book Now</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item">
+                                            </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="book_tabel_item"> 
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="room_area" id="room-section">
+            <div class="container">
+                <div class="section_title mb-5">
+                    <h2>✨ Our Luxurious Room Collection ✨</h2>
+                    <p class="text-center text-muted">Find the perfect space for your stay—from cozy comfort to ultimate extravagance.</p>
+                </div>
+                <div class="row">
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="room_card">
+                            <img src="image/single_deluxe.jpg" alt="Single Deluxe Room">
+                            <div class="card-body">
+                                <div class="room-description-container">
+                                    <h5 class="card-title">Single Deluxe Room</h5>
+                                    <p class="card-text">Perfect for solo travelers. Features a comfortable single bed, private bath, and essential modern amenities for a relaxing stay.</p>
+                                </div>
+                                <p class="room-price">Starting from: RS <span>1499</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="room_card">
+                            <img src="image/double_deluxe.jpg" alt="Double Deluxe Room">
+                            <div class="card-body">
+                                <div class="room-description-container">
+                                    <h5 class="card-title">Double Deluxe Room</h5>
+                                    <p class="card-text">Ideal for couples or two guests. Offers a spacious room with queen bed, and premium stay.</p>
+                                </div>
+                                <p class="room-price">Starting from: RS <span>2999</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="room_card">
+                            <img src="image/semi_luxury.jpg" alt="Semi Luxury Room">
+                            <div class="card-body">
+                                <div class="room-description-container">
+                                    <h5 class="card-title">Semi Luxury Room</h5>
+                                    <p class="card-text">A step up in comfort. Includes a king-sized bed, dedicated sitting area, mini-bar, and priority room service access for superior indulgence.</p>
+                                </div>
+                                <p class="room-price">Starting from: RS <span>4999</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="room_card">
+                            <img src="image/super_luxury.jpg" alt="Super Luxury Room">
+                            <div class="card-body">
+                                <div class="room-description-container">
+                                    <h5 class="card-title">Super Luxury Room</h5>
+                                    <p class="card-text">The ultimate experience. Features a separate lounge area, panoramic city view, dedicated butler service, and a lavish soaking tub.</p>
+                                </div>
+                                <p class="room-price">Starting from: RS <span>7999</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="about_why_choose_us_area" id="about-section">
+            <div class="container">
+                <div class="section_title">
+                    <h2>About Our Hotel</h2>
+                    <p>Welcome to New Sapphire, where luxury meets unparalleled comfort. Nestled in the heart of Metro City, our hotel offers a serene escape with breathtaking views and world-class amenities. We are dedicated to crafting memorable experiences for every guest, ensuring a stay that is both relaxing and invigorating.</p>
+                </div>
+                
+                <div class="section_title mt-5">
+                    <h2>Why Choose Us?</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single_feature">
+                            <i class="lnr lnr-diamond"></i>
+                            <h4>Exceptional Service</h4>
+                            <p>Our dedicated staff goes above and beyond to cater to your every need, providing personalized and attentive service around the clock.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single_feature">
+                            <i class="lnr lnr-map-marker"></i>
+                            <h4>Prime Location</h4>
+                            <p>Strategically located near major attractions and business hubs, offering convenience and easy access to the best of Metro City.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single_feature">
+                            <i class="lnr lnr-couch"></i>
+                            <h4>Modern Comforts</h4>
+                            <p>Experience state-of-the-art facilities, luxurious rooms, and amenities designed to provide the utmost comfort and relaxation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="footer_area section_gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single_footer_widget">
+                            <h4>About Us</h4>
+                            <p>New Sapphire Hotel offers a blend of luxury and comfort, dedicated to providing an unforgettable stay with top-notch service and amenities.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single_footer_widget">
+                            <h4>Quick Links</h4>
+                            <ul class="list-unstyled useful_links">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="rooms.php">Rooms</a></li>
+                                <li><a href="#about-section">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single_footer_widget">
+                            <h4>Contact Info</h4>
+                            <p><strong>Address:</strong> 123 Hotel Street, Metro City, 12345</p>
+                            <p><strong>Phone:</strong> +91 98765 43210</p>
+                            <p><strong>Email:</strong> info@newsapphire.com</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single_footer_widget">
+                            <h4>Follow Us</h4>
+                            <p>Stay connected on social media for updates and offers.</p>
+                            <div class="footer_social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row copy_right_text">
+                    <div class="col-md-12 text-center">
+                        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | New Sapphire Hotel
+</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+        <script src="js/mail-script.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="js/custom.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $(window).on('scroll', function() {
+                    if ($(window).scrollTop() > 100) { 
+                        $('.header_area').addClass('navbar_fixed');
+                    } else {
+                        $('.header_area').removeClass('navbar_fixed');
+                    }
+                });
+            });
+        </script>
+        
+    </body>
+</html>
